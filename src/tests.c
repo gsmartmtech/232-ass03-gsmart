@@ -89,9 +89,8 @@ void test_find_last_basic(void)
 {
     char str[] = "hello";
     char *resultPtr = find_last_char(str);
-    int lenOfStr = strlen(str);
 
-    TEST_ASSERT_EQUAL(str[lenOfStr-1], *resultPtr);
+    TEST_ASSERT_EQUAL(str[4],*resultPtr);
 }
 
 
