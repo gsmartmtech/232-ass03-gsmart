@@ -1,5 +1,5 @@
-//char * AUTHOR_NAME = (char *) "Jakub Pach";
-//char * AUTHOR_AUTHORSHIP = (char *) "I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the seriousness and implications of plagiarism.";
+char * AUTHOR_NAME = (char *) "Garrett Smart";
+char * AUTHOR_AUTHORSHIP = (char *) "I acknowledge that I have worked on this assignment independently, except where explicitly noted and referenced. Any collaboration or use of external resources has been properly cited. I am fully aware of the consequences of academic dishonesty and agree to abide by the university's academic integrity policy. I understand the seriousness and implications of plagiarism.";
 
 #include <stddef.h>
 #include <stdio.h>
@@ -54,7 +54,9 @@ int   sum_chain(Node *headPtr);
 
 void swap(int *aPtr, int *bPtr)
 {
-    // TODO
+    int tempVal = *aPtr;
+    *aPtr = *bPtr;
+    *bPtr = tempVal;
 }
 
 
@@ -78,8 +80,15 @@ void swap(int *aPtr, int *bPtr)
 
 char* find_last_char(char *sPtr)
 {
-    // TODO
-    return NULL;
+    char valToReturn;
+    int count = 0;
+    while(*(sPtr+count) != "")
+    {
+        valToReturn = *(sPtr + count);
+        count += 1;
+    }
+    
+    return valToReturn;
 }
 
 
