@@ -120,7 +120,10 @@ void test_find_last_single(void)
 
 void test_find_last_empty(void)
 {
-    // TODO
+    char str[] = "";
+    char *resultPtr = find_last_char(str);
+
+    TEST_ASSERT_EQUAL('\0',*resultPtr);
 }
 
 
