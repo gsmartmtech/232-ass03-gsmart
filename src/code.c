@@ -107,7 +107,9 @@ char* find_last_char(char *sPtr)
 
 void link_three(Node *aPtr, Node *bPtr, Node *cPtr)
 {
-    // TODO
+    aPtr->nextPtr = bPtr;
+    bPtr->nextPtr = cPtr;
+    cPtr->nextPtr = NULL;
 }
 
 
@@ -124,7 +126,8 @@ void link_three(Node *aPtr, Node *bPtr, Node *cPtr)
 
 void remove_middle(Node *aPtr, Node *bPtr, Node *cPtr)
 {
-    // TODO
+    aPtr->nextPtr = cPtr;
+    bPtr->nextPtr = NULL;
 }
 
 
@@ -141,7 +144,7 @@ void remove_middle(Node *aPtr, Node *bPtr, Node *cPtr)
 
 void remove_last(Node *bPtr)
 {
-    // TODO
+    bPtr->nextPtr = NULL;
 }
 
 
@@ -157,7 +160,7 @@ void remove_last(Node *bPtr)
 
 void remove_first(Node *aPtr)
 {
-    // TODO
+    aPtr->nextPtr = NULL;
 }
 
 
@@ -182,7 +185,9 @@ void remove_first(Node *aPtr)
 
 void swap_ptrs(int **aPtrPtr, int **bPtrPtr)
 {
-    // TODO
+    int* tempPtr = *bPtrPtr;
+    *bPtrPtr = *aPtrPtr;
+    *aPtrPtr = tempPtr;
 }
 
 
@@ -207,7 +212,7 @@ void swap_ptrs(int **aPtrPtr, int **bPtrPtr)
 
 void nullify(int **ppPtr)
 {
-    // TODO
+    *ppPtr = NULL;
 }
 
 
