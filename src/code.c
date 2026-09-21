@@ -239,7 +239,13 @@ void nullify(int **ppPtr)
 
 void assign_bytes(long long *nPtr)
 {
-    // TODO
+    int count = 0;
+    unsigned char* charPtr = nPtr;
+    while (count < 8)
+    {
+        *(charPtr + count) = count + 1;
+        count ++;
+    }
 }
 
 
@@ -261,6 +267,20 @@ void assign_bytes(long long *nPtr)
 
 int sum_chain(Node *headPtr)
 {
-    // TODO
-    return 0;
+    Node *currentPtr = headPtr;
+    int sum = 0;
+    if (headPtr != NULL)
+    {
+        while (currentPtr != NULL)
+        {
+            sum += currentPtr->value;
+            currentPtr = currentPtr->nextPtr;
+        }
+
+        return sum;
+    }
+    else 
+    {
+        return 0;
+    }
 }

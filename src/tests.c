@@ -339,7 +339,14 @@ void test_nullify_value_unchanged(void)
 
 void test_assign_bytes_first_and_last(void)
 {
-    // TODO
+    long long n = 0;
+    
+    assign_bytes(&n);
+
+    unsigned char* bytesN = &n;
+
+    TEST_ASSERT_EQUAL(1, *(bytesN + 0));
+    TEST_ASSERT_EQUAL(8, *(bytesN + 7));
 }
 
 
@@ -354,7 +361,16 @@ void test_assign_bytes_first_and_last(void)
 
 void test_assign_bytes_all(void)
 {
-    // TODO
+    long long n = 0;
+    
+    assign_bytes(&n);
+
+    unsigned char* bytesN = &n;
+
+    for (int i = 0; i < 8; i++)
+    {
+        TEST_ASSERT_EQUAL((i+1), *(bytesN + i));
+    }
 }
 
 
@@ -369,7 +385,21 @@ void test_assign_bytes_all(void)
 
 void test_sum_chain_basic(void)
 {
-    // TODO
+    Node a;
+    Node b;
+    Node c;
+    int aPtr = &a;
+    int bPtr = &b;
+    int cPtr = &c;
+    a.value = 1;
+    b.value = 2;
+    c.value = 3;
+
+    link_three(aPtr, bPtr, cPtr);
+
+    int result = sum_chain(aPtr);
+
+    TEST_ASSERT_EQUAL((a.value + b.value + c.value), result);
 }
 
 
@@ -383,7 +413,14 @@ void test_sum_chain_basic(void)
 
 void test_sum_chain_single(void)
 {
-    // TODO
+    Node a;
+    a.nextPtr = NULL;
+    int aPtr = &a;
+    a.value = 1;
+
+    int result = sum_chain(aPtr);
+
+    TEST_ASSERT_EQUAL((a.value), result);
 }
 
 
@@ -396,5 +433,7 @@ void test_sum_chain_single(void)
 
 void test_sum_chain_null(void)
 {
-    // TODO
+    int result = sum_chain(NULL);
+
+    TEST_ASSERT_EQUAL((0), result);
 }
